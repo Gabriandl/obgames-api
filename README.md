@@ -26,12 +26,12 @@
 
 # 1. Introdução
 
-É fato que a comunidade gamer se expandiu para todas as direções e a web certamente se encaixa neste processo. Muitos jogos podem ser encontrados diretamente pela internet, sem a necessidade qualquer download e a ideia do projeto GoodBrowserGames é juntar o útil ao agradável, isto é, coletar diversos jogos que não necessitem de instalações e sejam acessíveis diretamente pelo navegador.
+É fato que a comunidade gamer se expandiu para todas as direções e a web certamente se encaixa neste processo. Muitos jogos podem ser encontrados diretamente pela internet, sem a necessidade qualquer download e a ideia do projeto OnlyBrowserGames é juntar o útil ao agradável, isto é, coletar diversos jogos que não necessitem de instalações e sejam acessíveis diretamente pelo navegador.
 
-GoodBrowserGames tem o objetivo de criar uma comunidade em que a interação entre usuários é o foco. Os membros terão a possibilidade de compartilhar seus feedbacks dos browser games jogados. A plataforma coletará os dados e a partir destes será feita uma análise que permitirá a adaptação da plataforma para a melhor experiência do usuário.
+OnlyBrowserGames tem o objetivo de criar uma comunidade em que a interação entre usuários é o foco. Os membros terão a possibilidade de compartilhar seus feedbacks dos browser games jogados. A plataforma coletará os dados e a partir destes será feita uma análise que permitirá a adaptação da plataforma para a melhor experiência do usuário.
 
 # 2. Interessados
-O tipo de usuário que se destina o GoodBrowserGames são majoritariamente Crianças e Jovens,
+O tipo de usuário que se destina o OnlyBrowserGames são majoritariamente Crianças e Jovens,
 entre 10 e 25 anos, que são cativados pelo mundo dos jogos. Eles jogam pelo prazer que os jogos trazem, junto aos seus desafios, objetivos e diversão.
 
 A acessabilidade é um fator primordial para esses jogadores, em que, seja possível acessar o jogo tanto no Mobile quanto no Desktop ou Notebook.
@@ -53,9 +53,9 @@ As principais características que se destacam neles são, seu otimismo e persis
 
 3.g - O sistena deverá permitir que o Membro possa 'curtir' a avaliação de outro Membro.
 
-3.h - O sistema deverá permitir que o Membro solicite uma lista avaliações mais úteis do GoodBrowserGames.
+3.h - O sistema deverá permitir que o Membro solicite uma lista avaliações mais úteis do OnlyBrowserGames.
 
-3.i - O sistema deverá permitir que o Membro visualize as recomemdações que o GoodBrowserGames oferece.
+3.i - O sistema deverá permitir que o Membro visualize as recomemdações que o OnlyBrowserGames oferece.
 
 3.j - O sistema deverá permitir que o Administrador obtenha relatórios.
 
@@ -76,7 +76,7 @@ As principais características que se destacam neles são, seu otimismo e persis
 - As recomendações serão baseadas nos browser games das 2 categorias mais avaliadas do membro.
 - Deverão ser exibidos apenas os browser games que ainda não foram avaliados por esse membro, e que a media de avaliações seja maior que 3.
 
-4.h - O sistema devera disponibilizar os relatórios ao administrador organizados por um determinado período (ou seja, definindo as datas inicial e final) de operação do GoodBrowserGames:
+4.h - O sistema devera disponibilizar os relatórios ao administrador organizados por um determinado período (ou seja, definindo as datas inicial e final) de operação do OnlyBrowserGames:
 - 5 jogos que receberam maior número de avaliações; 
 - 5 membros que realizaram o maior número de avaliações;
 - 5 jogos que têm a maior nota média de avaliação (neste caso, só devem ser levados em conta os jogos que já receberam pelo menos 4 avaliações no período); 
@@ -85,7 +85,7 @@ As principais características que se destacam neles são, seu otimismo e persis
 # 5. Diagrama de Casos de Uso
 ![CasosDeUso - BrowserGames - PPADS](https://user-images.githubusercontent.com/63924505/156226714-55e84999-ef7f-401f-a169-e68d50f619f4.png)
 ---
-![casos de uso v2 - GoodBrowserGames](https://user-images.githubusercontent.com/63924505/158256606-24f9a8a9-4e30-498b-ac06-c3644775e3b3.png)
+![casos de uso v2 - OnlyBrowserGames](https://user-images.githubusercontent.com/63924505/158256606-24f9a8a9-4e30-498b-ac06-c3644775e3b3.png)
 
 ## 5.1 Descrição Detalhada dos Casos de Uso Principais
 
@@ -93,7 +93,7 @@ As principais características que se destacam neles são, seu otimismo e persis
 
 **Ator:** Usuário não-Membro
 
-**Resumo:** Para que o usuário acesse o GoodBrowserGames,  ele deverá efetuar o cadastro na plataforma, garantindo suas permissões como membro.
+**Resumo:** Para que o usuário acesse o OnlyBrowserGames,  ele deverá efetuar o cadastro na plataforma, garantindo suas permissões como membro.
 
 **Pré-condições:**
 * O usuário não é membro.
@@ -197,7 +197,7 @@ Passo 2:
 
 ---
 
-**Nome do caso de uso:** Visualizar Recomendações do GoodBrowserGames
+**Nome do caso de uso:** Visualizar Recomendações do OnlyBrowserGames
 
 **Ator:** Membro
 
@@ -211,15 +211,15 @@ Passo 2:
 
 **Fluxo principal:** 
 
-1. O Membro acessa a Home Page do GoodBrowserGames
+1. O Membro acessa a Home Page do OnlyBrowserGames
 2. O sistema exibe as recomendações baseadas em seu algoritimo.
-3. O Membro navega na lista de recomendações do GoodBrowserGames.
+3. O Membro navega na lista de recomendações do OnlyBrowserGames.
 
 ---
 
 **Nome do caso de uso:** Cadastrar BrowserGame
 
-**Ator:** Administrador GoodBrowserGames
+**Ator:** Administrador OnlyBrowserGames
 
 **Resumo:** O Administrador pode cadastrar um BrowserGame.
 
@@ -231,7 +231,7 @@ Passo 2:
 
 **Fluxo principal:** 
 
-1. O usuário seleciona a operação de login no GoodBrowserGames como *Administrador*.
+1. O usuário seleciona a operação de login no OnlyBrowserGames como *Administrador*.
 2. O usuário insere as informações para login.
 3. O sistema verifica as informações do usuário e valida suas permissões como *Admin*.
 4. O sistema fornece suas permissões como *Admin*
@@ -255,7 +255,7 @@ Passo 5:
 
 **Nome do caso de uso:** Gerenciar BrowserGames cadastrados
 
-**Ator:** Administrador GoodBrowserGames
+**Ator:** Administrador OnlyBrowserGames
 
 **Resumo:** O *Administrador* tem a possibilidade de editar a lista do catálogo, gerenciando as categorias.
 
@@ -313,11 +313,11 @@ Passo 3:
 
 **8.b Definição de componentes**
 
-![Componentes - GoodBrowserGames](https://user-images.githubusercontent.com/64552267/158095589-484c6e7e-1561-4cd9-95e9-809df1d19bc8.png)
+![Componentes - OnlyBrowserGames](https://user-images.githubusercontent.com/64552267/158095589-484c6e7e-1561-4cd9-95e9-809df1d19bc8.png)
 
 **8.c Definição do modelo de dados**
 
-![Dados - GoodBrowserGames](https://user-images.githubusercontent.com/64552267/158267143-89ac5c07-861f-46d6-a056-ac20e413687c.png)
+![Dados - OnlyBrowserGames](https://user-images.githubusercontent.com/64552267/158267143-89ac5c07-861f-46d6-a056-ac20e413687c.png)
 
 **8.d Tecnologias utilizadas**
 - Java;
@@ -329,37 +329,33 @@ Passo 3:
 
 **8.e Definiçao da implantação do sistema**
 
-![Implantação - GoodBrowserGames](https://user-images.githubusercontent.com/64552267/158266639-06e28481-1b17-4634-9fe8-118abc158dd9.png)
+![Implantação - OnlyBrowserGames](https://user-images.githubusercontent.com/64552267/158266639-06e28481-1b17-4634-9fe8-118abc158dd9.png)
 
 # 9. Diagramas de Classes de Projeto
 
-![Classes - GoodBrowserGames](https://user-images.githubusercontent.com/64552267/158266475-007dee31-1e8f-47aa-95ed-7f6b29719b0b.png)
+![Classes - OnlyBrowserGames](https://user-images.githubusercontent.com/64552267/158266475-007dee31-1e8f-47aa-95ed-7f6b29719b0b.png)
 
 # 10. Diagramas de Sequência de Projeto
 
-![Cadastrar como Membro - GoodBrowserGames](https://user-images.githubusercontent.com/63924505/158255998-d1e6ca4a-f2b7-4414-ad5e-d4a204403ff1.png)
+![Cadastrar como Membro - OnlyBrowserGames](https://user-images.githubusercontent.com/63924505/158255998-d1e6ca4a-f2b7-4414-ad5e-d4a204403ff1.png)
 ---
-![Atualizar Informações de Cadastro - GoodBrowserGames](https://user-images.githubusercontent.com/63924505/158047874-1c12e0c2-f232-4ab9-b946-35ae0a1d12a4.png)
+![Atualizar Informações de Cadastro - OnlyBrowserGames](https://user-images.githubusercontent.com/63924505/158047874-1c12e0c2-f232-4ab9-b946-35ae0a1d12a4.png)
 ---
-![Buscar BrowserGames cadastrados - GoodBrowserGames](https://user-images.githubusercontent.com/63924505/158047882-7577a5f4-f2ca-4d8b-bcc1-ca5851e4f76c.png)
+![Buscar BrowserGames cadastrados - OnlyBrowserGames](https://user-images.githubusercontent.com/63924505/158047882-7577a5f4-f2ca-4d8b-bcc1-ca5851e4f76c.png)
 ---
-![Avaliar BrowserGame - GoodBrowserGames](https://user-images.githubusercontent.com/63924505/158047911-c5d4c7c5-cafe-4310-8c13-cb7fbcbb0b54.png)
+![Avaliar BrowserGame - OnlyBrowserGames](https://user-images.githubusercontent.com/63924505/158047911-c5d4c7c5-cafe-4310-8c13-cb7fbcbb0b54.png)
 ---
-![Solicitar lista de avaliações mais curtidas!úteis - GoodBrowserGames](https://user-images.githubusercontent.com/63924505/158047917-37ab867b-bbad-4890-8a3c-01fd99399bbe.png)
+![Solicitar lista de avaliações mais curtidas!úteis - OnlyBrowserGames](https://user-images.githubusercontent.com/63924505/158047917-37ab867b-bbad-4890-8a3c-01fd99399bbe.png)
 ---
-![Visualizar avaliações feitas no BorwserGame - GoodBrowserGames](https://user-images.githubusercontent.com/63924505/158047920-b7d35136-3389-4d7e-95af-cb50854b39a2.png)
+![Visualizar avaliações feitas no BorwserGame - OnlyBrowserGames](https://user-images.githubusercontent.com/63924505/158047920-b7d35136-3389-4d7e-95af-cb50854b39a2.png)
 ---
-![Visualizar Recomendações - GoodBrowserGames](https://user-images.githubusercontent.com/64552267/158079928-a7368bde-052d-4b3a-82c5-17f3d5f823d5.png)
+![Visualizar Recomendações - OnlyBrowserGames](https://user-images.githubusercontent.com/64552267/158079928-a7368bde-052d-4b3a-82c5-17f3d5f823d5.png)
 ---
-![Cadastrar BrowserGames - GoodBrowserGames](https://user-images.githubusercontent.com/64552267/158079988-fb5577be-3f95-40cf-9488-f5c41334aac9.png)
+![Cadastrar BrowserGames - OnlyBrowserGames](https://user-images.githubusercontent.com/64552267/158079988-fb5577be-3f95-40cf-9488-f5c41334aac9.png)
 ---
-![Editar Categoria - GoodBrowserGames](https://user-images.githubusercontent.com/64552267/158080026-678f955f-08e4-4e8a-8ae1-fe2265a62213.png)
+![Editar Categoria - OnlyBrowserGames](https://user-images.githubusercontent.com/64552267/158080026-678f955f-08e4-4e8a-8ae1-fe2265a62213.png)
 ---
-![Adicionar categoria - GoodBrowserGames](https://user-images.githubusercontent.com/64552267/158080051-83559a39-febc-4390-8d0a-6fedb413983d.png)
+![Adicionar categoria - OnlyBrowserGames](https://user-images.githubusercontent.com/64552267/158080051-83559a39-febc-4390-8d0a-6fedb413983d.png)
 ---
-![Obter Relatório - GoodBrowserGames](https://user-images.githubusercontent.com/64552267/158080115-60de4fa4-138e-41ff-b138-e297d4964b4a.png)
+![Obter Relatório - OnlyBrowserGames](https://user-images.githubusercontent.com/64552267/158080115-60de4fa4-138e-41ff-b138-e297d4964b4a.png)
 ---
-
-
-
-
