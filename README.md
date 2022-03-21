@@ -1,8 +1,7 @@
 # ppads_projeto
 
-## Especificação
 ---
-## OnlyBrowserGames
+## OnlyBrowserGames - Especificação
 
 | Integrantes do Grupo | T.I.A |
 | -------------------- | ----- |
