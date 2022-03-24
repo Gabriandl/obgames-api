@@ -1,6 +1,7 @@
 package com.obgames.obgamesapi.model;
 
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.data.annotation.Id;
@@ -23,13 +24,24 @@ public class BrowserGame {
 
     private String descricao;
 
-    private Date timestamp;
+    private Date timestamp = new Date();
+
+   private String dataCriacao = new SimpleDateFormat("dd 'de' MMMM 'de' yyyy").format(new Date());
+
 
     @DBRef
     private Categoria categoria;
 
     public String getNome() {
         return nome;
+    }
+
+   public String getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public void setDataCriacao(String dataCriacao) {
+        this.dataCriacao = dataCriacao;
     }
 
     public String getId() {
