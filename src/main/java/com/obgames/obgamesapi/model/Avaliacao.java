@@ -21,6 +21,8 @@ public class Avaliacao {
     @DBRef
     private ArrayList<Usuario> curtidas = new ArrayList<>();
 
+    private Integer curtidasSize = 0;
+
     private Date timestamp = new Date();
 
     private String dataCriacao = new SimpleDateFormat("dd 'de' MMMM 'de' yyyy").format(new Date());
@@ -33,6 +35,14 @@ public class Avaliacao {
 
     public Double getNumEstrelas() {
         return numEstrelas;
+    }
+
+    public Integer getCurtidasSize() {
+        return curtidasSize;
+    }
+
+    public void setCurtidasSize(Integer curtidasSize) {
+        this.curtidasSize = curtidasSize;
     }
 
     public String getId() {
@@ -82,6 +92,7 @@ public class Avaliacao {
     }
 
     public void setCurtida(ArrayList<Usuario> curtida) {
+        this.curtidasSize = curtida.size();
         this.curtidas = curtida;
     }
 

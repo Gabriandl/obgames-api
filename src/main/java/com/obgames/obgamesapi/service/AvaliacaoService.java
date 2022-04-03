@@ -14,6 +14,8 @@ public interface AvaliacaoService {
         Optional<Avaliacao>  updateAvaliacao(Avaliacao avaliacao, String id) throws ResourceNotFoundException, Exception;
     
         List<Avaliacao> getAllAvaliacao();
+
+        List<Avaliacao> getAvaliacaoByBrowserGameId(String browserGameId);
     
         Avaliacao getAvaliacaoById(String id) throws ResourceNotFoundException;
     

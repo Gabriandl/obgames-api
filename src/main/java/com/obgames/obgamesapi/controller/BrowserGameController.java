@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -24,7 +25,10 @@ public class BrowserGameController {
     private BrowserGameService browserGameService;
 
     @GetMapping("/browserGames")
-    public ResponseEntity<List<BrowserGame>> getAllBrowserGame() {
+    public ResponseEntity<List<BrowserGame>> getAllBrowserGame(@RequestParam(required = false) String categoriaId) {
+        if (categoriaId != null) {
+            return ResponseEntity.ok().body(browserGameService.getBrowserGameByCategoriaId(categoriaId));
+        }
         return ResponseEntity.ok().body(browserGameService.getAllBrowserGame());
     }
 

@@ -7,6 +7,7 @@ import com.obgames.obgamesapi.model.BrowserGame;
 import com.obgames.obgamesapi.repository.BrowserGameRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,7 +40,12 @@ public class BrowserGameServiceImpl implements BrowserGameService {
 
     @Override
     public List<BrowserGame> getAllBrowserGame() {
-        return this.browserGameRepo.findAll();
+        return this.browserGameRepo.findAll(Sort.by("nome").ascending());
+    }
+
+    @Override
+    public List<BrowserGame> getBrowserGameByCategoriaId(String categoriaId) {
+        return this.browserGameRepo.findByCategoriaId(categoriaId, Sort.by("nome").ascending());
     }
 
     @Override
