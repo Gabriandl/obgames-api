@@ -12,6 +12,8 @@ import com.obgames.obgamesapi.repository.AvaliacaoRepo;
 import com.obgames.obgamesapi.repository.UsuarioRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,7 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class AvaliacaoServiceImpl implements AvaliacaoService {
 
     @Autowired
-    private AvaliacaoRepo avaliacaoRepo;
+    public AvaliacaoRepo avaliacaoRepo;
 
     @Autowired
     private UsuarioRepo usuarioRepo;
@@ -63,7 +65,12 @@ public class AvaliacaoServiceImpl implements AvaliacaoService {
 
     @Override
     public List<Avaliacao> getAllAvaliacao() {
-        return this.avaliacaoRepo.findAll();
+        return this.avaliacaoRepo.findAll(Sort.by(Direction.DESC, "curtidasSize"));
+    }
+
+    @Override
+    public List<Avaliacao> getAvaliacaoByBrowserGameId(String browserGameId) {
+        return this.avaliacaoRepo.findByBrowserGameId(browserGameId, Sort.by(Direction.DESC, "curtidasSize"));
     }
 
     @Override
@@ -80,17 +87,15 @@ public class AvaliacaoServiceImpl implements AvaliacaoService {
 
     @Override
     public Optional<Avaliacao> deleteCurtidaFromAvaliacao(String id, String usuarioId) throws Exception {
-        //Optional<Usuario> usuarioDb = this.usuarioRepo.findById(usuarioId);
         Optional<Avaliacao> avaliacaoDb = this.avaliacaoRepo.findById(id);
         Avaliacao avaliacao = avaliacaoDb.get();
         ArrayList<Usuario> curtidas = avaliacao.getCurtidas();
-        String x = curtidas.get(0).getId();
-        //curtidas.remove(0);
+        Boolean stop = false;
 
-        for (int c = 0 ; c < curtidas.size() ; c++){
+        for (int c=0 ; !stop ; c=0) {
             if (usuarioId.equals(curtidas.get(c).getId())){
                 curtidas.remove(c);
-                c=0;
+                stop = curtidas.size() == 0 ? true : false;
             }
         }
         avaliacao.setCurtida(curtidas);

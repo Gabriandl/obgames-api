@@ -28,7 +28,10 @@ public class AvaliacaoController {
     private AvaliacaoService avaliacaoService;
 
     @GetMapping("/avaliacoes")
-    public ResponseEntity<List<Avaliacao>> getAllAvaliacao() {
+    public ResponseEntity<List<Avaliacao>> getAllAvaliacao(@RequestParam(required = false) String browserGameId) {
+        if (browserGameId != null) {
+            return ResponseEntity.ok().body(avaliacaoService.getAvaliacaoByBrowserGameId(browserGameId));
+        }
         return ResponseEntity.ok().body(avaliacaoService.getAllAvaliacao());
     }
 
