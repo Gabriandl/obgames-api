@@ -7,8 +7,6 @@ import java.util.Optional;
 import com.obgames.obgamesapi.exceptions.ResourceNotFoundException;
 import com.obgames.obgamesapi.exceptions.ResponseStatusException;
 import com.obgames.obgamesapi.model.Avaliacao;
-import com.obgames.obgamesapi.model.Curtida;
-import com.obgames.obgamesapi.model.Usuario;
 import com.obgames.obgamesapi.service.AvaliacaoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -50,10 +49,8 @@ public class AvaliacaoController {
     }
 
     @PutMapping("/avaliacoes/{id}/curtidas")
-    public ResponseEntity<Optional<Avaliacao>> insertCurtidas(@PathVariable String id, @RequestBody Usuario usuario) throws Exception {
-        Avaliacao avaliacao = avaliacaoService.getAvaliacaoById(id);
-        avaliacao.setCurtida(usuario);
-        return ResponseEntity.ok().body(this.avaliacaoService.updateAvaliacao(avaliacao, id));
+    public ResponseEntity<Optional<Avaliacao>> insertCurtidas(@PathVariable String id, @RequestParam String usuarioId) throws Exception {
+        return ResponseEntity.ok().body(this.avaliacaoService.insertCurtidaIntoAvaliacao(id, usuarioId));
     }
 
     @DeleteMapping("/avaliacoes/{id}")
@@ -61,4 +58,12 @@ public class AvaliacaoController {
         this.avaliacaoService.deleteAvaliacao(id);
         return HttpStatus.OK;
     }
+
+    @DeleteMapping("/avaliacoes/{id}/curtidas")
+    public ResponseEntity<Optional<Avaliacao>> deleteCurtida(@PathVariable String id, @RequestParam String usuarioId) throws Exception {
+        return ResponseEntity.ok().body(this.avaliacaoService.deleteCurtidaFromAvaliacao(id, usuarioId));
+    }
+
+    
+
 }

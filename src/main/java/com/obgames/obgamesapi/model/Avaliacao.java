@@ -81,8 +81,8 @@ public class Avaliacao {
         return curtidas;
     }
 
-    public void setCurtida(Usuario curtida) {
-        this.curtidas.add(curtida);
+    public void setCurtida(ArrayList<Usuario> curtida) {
+        this.curtidas = curtida;
     }
 
     public String getComentario() {

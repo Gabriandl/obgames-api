@@ -18,5 +18,10 @@ public interface AvaliacaoService {
         Avaliacao getAvaliacaoById(String id) throws ResourceNotFoundException;
     
         void deleteAvaliacao(String id) throws ResourceNotFoundException, ResponseStatusException;
+
+        Optional<Avaliacao> insertCurtidaIntoAvaliacao(String id, String usuarioId) throws Exception;
+
+        Optional<Avaliacao> deleteCurtidaFromAvaliacao(String id, String usuarioId) throws Exception;
+
     
 }
