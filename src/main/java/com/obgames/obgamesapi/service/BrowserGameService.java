@@ -12,6 +12,8 @@ public interface BrowserGameService {
         Optional<BrowserGame>  updateBrowserGame(BrowserGame browserGame, String id);
     
         List<BrowserGame> getAllBrowserGame();
+
+        List<BrowserGame> getBrowserGameByCategoriaId(String categoriaId);
     
         BrowserGame getBrowserGameById(String id);
     

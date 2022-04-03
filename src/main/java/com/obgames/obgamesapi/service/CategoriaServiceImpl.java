@@ -11,6 +11,7 @@ import com.obgames.obgamesapi.repository.BrowserGameRepo;
 import com.obgames.obgamesapi.repository.CategoriaRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -61,9 +62,7 @@ public class CategoriaServiceImpl implements CategoriaService {
 
     @Override
     public void deleteCategoria(String categoriaId) throws ResourceNotFoundException, ResponseStatusException {
-        Categoria categoria = new Categoria();
-        categoria.setId(categoriaId);
-        List<BrowserGame> browserGames = this.browserGameRepo.findByCategoria(categoria);
+        List<BrowserGame> browserGames = this.browserGameRepo.findByCategoriaId(categoriaId,Sort.by("nome").ascending());
         if (browserGames.size() == 0){
             Optional<Categoria> categoriaDb = this.categoriaRepo.findById(categoriaId);
 
