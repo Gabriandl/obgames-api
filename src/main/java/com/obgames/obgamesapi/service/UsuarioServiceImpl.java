@@ -38,6 +38,13 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
+    public Boolean  verifyUsuarioExistsByUsername(String username) {
+        Boolean usuarioDb = this.usuarioRepo.existsByUsername(username);
+        return usuarioDb;
+    }
+
+
+    @Override
     public List<Usuario> getAllUsuario() {
         return this.usuarioRepo.findAll();
     }

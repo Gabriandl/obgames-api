@@ -1,4 +1,4 @@
-package com.obgames.obgamesapi.security.controller;
+package com.obgames.obgamesapi.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;

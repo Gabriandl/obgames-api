@@ -1,4 +1,4 @@
-package com.obgames.obgamesapi.security.controller;
+package com.obgames.obgamesapi.controller;
 
 import java.util.HashSet;
 import java.util.List;
@@ -10,13 +10,13 @@ import com.obgames.obgamesapi.model.EnumRole;
 import com.obgames.obgamesapi.model.Role;
 import com.obgames.obgamesapi.model.Usuario;
 import com.obgames.obgamesapi.repository.RoleRepo;
-import com.obgames.obgamesapi.repository.UsuarioRepo;
 import com.obgames.obgamesapi.security.dto.request.LoginRequest;
 import com.obgames.obgamesapi.security.dto.request.SignupRequest;
 import com.obgames.obgamesapi.security.dto.response.JwtResponse;
 import com.obgames.obgamesapi.security.dto.response.MessageResponse;
 import com.obgames.obgamesapi.security.jwt.JwtUtils;
 import com.obgames.obgamesapi.security.service.UserDetailsImpl;
+import com.obgames.obgamesapi.service.UsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -37,8 +37,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
 	@Autowired
 	AuthenticationManager authenticationManager;
+
 	@Autowired
-	UsuarioRepo usuarioRepo;
+    UsuarioService usuarioService;
 	@Autowired
 	RoleRepo roleRepo;
 	@Autowired
@@ -66,7 +67,7 @@ public class AuthController {
 
 	@PostMapping("/signup")
 	public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
-		if (usuarioRepo.existsByUsername(signUpRequest.getUsername())) {
+		if (usuarioService.verifyUsuarioExistsByUsername(signUpRequest.getUsername())) {
 			return ResponseEntity
 					.badRequest()
 					.body(new MessageResponse("Error: Username is already taken!"));
@@ -101,7 +102,7 @@ public class AuthController {
 			});
 		}
 		user.setRoles(roles);
-		usuarioRepo.save(user);
+		usuarioService.createUsuario(user);
 		return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
 	}
 }
