@@ -3,8 +3,12 @@ package com.obgames.obgamesapi.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "usuario")
@@ -15,6 +19,7 @@ public class Usuario {
 
     private String nomeCompleto ;
 
+    @JsonIgnore
     private String username;
 
     private String dataNasc;
@@ -22,14 +27,25 @@ public class Usuario {
     private Estados estado;
 
     private String pais;
-
+    
+    @JsonIgnore
     private String senha;
-
-    private NivelAcesso nivelAcesso = NivelAcesso.MEMBRO;
+    
+    @DBRef
+    private Set<Role> roles ;
 
     private Date timestamp = new Date();
 
     private String dataCriacao = new SimpleDateFormat("dd 'de' MMMM 'de' yyyy").format(new Date());
+
+    public Usuario(String nomeCompleto, String username, String dataNasc, Estados estado, String pais, String senha) {
+        this.nomeCompleto = nomeCompleto;
+        this.username = username;
+        this.dataNasc = dataNasc;
+        this.estado = estado;
+        this.pais = pais;
+        this.senha = senha;
+    }
 
     public String getId() {
         return id;
@@ -51,12 +67,12 @@ public class Usuario {
         this.timestamp = timestamp;
     }
 
-    public NivelAcesso getNivelAcesso() {
-        return nivelAcesso;
+    public Set<Role> getRoles() {
+        return roles;
     }
 
-    public void setNivelAcesso(NivelAcesso nivelAcesso) {
-        this.nivelAcesso = nivelAcesso;
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
     public String getSenha() {
