@@ -23,7 +23,7 @@ public class Avaliacao {
 
     private Integer curtidasSize = 0;
 
-    private Date timestamp = new Date();
+    private long timestamp = System.currentTimeMillis()/1000;
 
     private String dataCriacao = new SimpleDateFormat("dd 'de' MMMM 'de' yyyy").format(new Date());
 
@@ -78,12 +78,12 @@ public class Avaliacao {
         this.dataCriacao = dataCriacao;
     }
 
-    public Date getTimestamp() {
+    public long getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Date timestamp) {
-        if (this.timestamp == null)
+    public void setTimestamp(long timestamp) {
+        if (this.timestamp != 0)
         this.timestamp = timestamp;
     }
 

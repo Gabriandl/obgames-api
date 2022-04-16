@@ -1,0 +1,52 @@
+package com.obgames.obgamesapi.repository;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import com.obgames.obgamesapi.model.Avaliacao;
+import com.obgames.obgamesapi.model.Usuario;
+
+import static com.mongodb.client.model.Filters.*;
+import static com.mongodb.client.model.Projections.*;
+
+import org.bson.Document;
+import org.bson.codecs.UuidCodec;
+import org.bson.json.Converter;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.convert.ConversionService;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class RelatorioRepo {
+
+    //@Value("${obgames.app.mongodb.uri}")
+	//private String connectionString;
+    @DBRef
+    ArrayList<Document> docs =new ArrayList<>();
+    ObjectMapper mapper= new ObjectMapper();
+    MongoClient mongoClient = MongoClients.create("mongodb+srv://obgames-api:8m9LGOrnULRhGxlS@obgames.lo8x7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
+    MongoDatabase sampleTrainingDB = mongoClient.getDatabase("myFirstDatabase");
+    MongoCollection<Document> avaliacaoCollection = sampleTrainingDB.getCollection("avaliacao");
+
+        public ArrayList<Usuario> getUserWithMoreEvaluation(long dataInicial, long dataFinal) {
+        
+        
+
+        docs = avaliacaoCollection.find().projection(fields(excludeId(),include("usuario"))).into(new ArrayList<>());
+    
+        ArrayList<Usuario> usuarios = mapper.convertValue(docs, new TypeReference<ArrayList<Usuario>>(){});
+
+        return usuarios;
+
+     }
+    
+}

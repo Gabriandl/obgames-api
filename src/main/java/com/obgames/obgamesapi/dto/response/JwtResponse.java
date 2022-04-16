@@ -1,4 +1,4 @@
-package com.obgames.obgamesapi.security.dto.response;
+package com.obgames.obgamesapi.dto.response;
 
 import java.util.List;
 

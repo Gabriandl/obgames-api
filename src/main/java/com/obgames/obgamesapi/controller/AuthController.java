@@ -6,14 +6,14 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import javax.validation.Valid;
 
+import com.obgames.obgamesapi.dto.request.LoginRequest;
+import com.obgames.obgamesapi.dto.request.SignupRequest;
+import com.obgames.obgamesapi.dto.response.JwtResponse;
+import com.obgames.obgamesapi.dto.response.MessageResponse;
 import com.obgames.obgamesapi.model.EnumRole;
 import com.obgames.obgamesapi.model.Role;
 import com.obgames.obgamesapi.model.Usuario;
 import com.obgames.obgamesapi.repository.RoleRepo;
-import com.obgames.obgamesapi.security.dto.request.LoginRequest;
-import com.obgames.obgamesapi.security.dto.request.SignupRequest;
-import com.obgames.obgamesapi.security.dto.response.JwtResponse;
-import com.obgames.obgamesapi.security.dto.response.MessageResponse;
 import com.obgames.obgamesapi.security.jwt.JwtUtils;
 import com.obgames.obgamesapi.security.service.UserDetailsImpl;
 import com.obgames.obgamesapi.service.UsuarioService;
