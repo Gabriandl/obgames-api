@@ -9,13 +9,15 @@ public interface BrowserGameService {
     
     BrowserGame createBrowserGame(BrowserGame browserGame);
     
-        Optional<BrowserGame>  updateBrowserGame(BrowserGame browserGame, String id);
+    Optional<BrowserGame>  updateBrowserGame(BrowserGame browserGame, String id);
     
-        List<BrowserGame> getAllBrowserGame();
+    List<BrowserGame> getAllBrowserGame();
 
-        List<BrowserGame> getBrowserGameByCategoriaId(String categoriaId);
+    List<BrowserGame> getBrowserGameByCategoriaId(String categoriaId);
+
+    List<BrowserGame> getBrowserGamesRecomendationById(String usuarioId);
     
-        BrowserGame getBrowserGameById(String id);
+    BrowserGame getBrowserGameById(String id);
     
-        void deleteBrowserGame(String id);
+    void deleteBrowserGame(String id);
 }
