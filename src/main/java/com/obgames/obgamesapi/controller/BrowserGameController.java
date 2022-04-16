@@ -38,6 +38,11 @@ public class BrowserGameController {
         return ResponseEntity.ok().body(browserGameService.getBrowserGameById(id));
     }
 
+    @GetMapping("/browserGames/recomendacao/{usuarioId}")
+    public ResponseEntity<List<BrowserGame>> getBrowserGamesRecomendationById(@PathVariable String usuarioId) {
+        return ResponseEntity.ok().body(browserGameService.getBrowserGamesRecomendationById(usuarioId));
+    }
+
     @PostMapping("/browserGames")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity <BrowserGame> createBrowserGame(@RequestBody BrowserGame browserGame) {
