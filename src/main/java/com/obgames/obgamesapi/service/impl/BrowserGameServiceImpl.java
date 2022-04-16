@@ -1,4 +1,4 @@
-package com.obgames.obgamesapi.service;
+package com.obgames.obgamesapi.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,6 +11,7 @@ import com.obgames.obgamesapi.model.Avaliacao;
 import com.obgames.obgamesapi.model.BrowserGame;
 import com.obgames.obgamesapi.repository.AvaliacaoRepo;
 import com.obgames.obgamesapi.repository.BrowserGameRepo;
+import com.obgames.obgamesapi.service.BrowserGameService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;

@@ -1,4 +1,4 @@
-package com.obgames.obgamesapi.service;
+package com.obgames.obgamesapi.service.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,6 +9,7 @@ import com.obgames.obgamesapi.model.BrowserGame;
 import com.obgames.obgamesapi.model.Categoria;
 import com.obgames.obgamesapi.repository.BrowserGameRepo;
 import com.obgames.obgamesapi.repository.CategoriaRepo;
+import com.obgames.obgamesapi.service.CategoriaService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;

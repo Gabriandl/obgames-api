@@ -1,4 +1,4 @@
-package com.obgames.obgamesapi.service;
+package com.obgames.obgamesapi.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +10,7 @@ import com.obgames.obgamesapi.model.Avaliacao;
 import com.obgames.obgamesapi.model.Usuario;
 import com.obgames.obgamesapi.repository.AvaliacaoRepo;
 import com.obgames.obgamesapi.repository.UsuarioRepo;
+import com.obgames.obgamesapi.service.AvaliacaoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
