@@ -1,4 +1,4 @@
-package com.obgames.obgamesapi.service;
+package com.obgames.obgamesapi.service.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,6 +7,7 @@ import com.obgames.obgamesapi.exceptions.ResourceNotFoundException;
 import com.obgames.obgamesapi.exceptions.ResponseStatusException;
 import com.obgames.obgamesapi.model.Usuario;
 import com.obgames.obgamesapi.repository.UsuarioRepo;
+import com.obgames.obgamesapi.service.UsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
