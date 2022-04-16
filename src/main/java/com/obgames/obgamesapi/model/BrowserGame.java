@@ -24,7 +24,7 @@ public class BrowserGame {
 
     private String descricao;
 
-    private Date timestamp = new Date();
+    private long timestamp = System.currentTimeMillis()/1000;
 
    private String dataCriacao = new SimpleDateFormat("dd 'de' MMMM 'de' yyyy").format(new Date());
 
@@ -65,11 +65,11 @@ public class BrowserGame {
     }
 
 
-    public Date getTimestamp() {
+    public long getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Date timestamp) {
+    public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
     }
 

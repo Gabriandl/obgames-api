@@ -1,4 +1,4 @@
-package com.obgames.obgamesapi.security.dto.request;
+package com.obgames.obgamesapi.dto.request;
 
 import java.util.Set;
 

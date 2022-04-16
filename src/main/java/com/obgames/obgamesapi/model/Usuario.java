@@ -34,7 +34,7 @@ public class Usuario {
     @DBRef
     private Set<Role> roles ;
 
-    private Date timestamp = new Date();
+    private long timestamp = System.currentTimeMillis()/1000;
 
     private String dataCriacao = new SimpleDateFormat("dd 'de' MMMM 'de' yyyy").format(new Date());
 
@@ -45,6 +45,9 @@ public class Usuario {
         this.estado = estado;
         this.pais = pais;
         this.senha = senha;
+    }
+
+    public Usuario() {
     }
 
     public String getId() {
@@ -59,11 +62,11 @@ public class Usuario {
         this.dataCriacao = dataCriacao;
     }
 
-    public Date getTimestamp() {
+    public long getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Date timestamp) {
+    public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
     }
 
