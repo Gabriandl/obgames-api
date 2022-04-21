@@ -3,6 +3,7 @@ package com.obgames.obgamesapi.controller;
 import java.util.List;
 import java.util.Optional;
 
+import com.obgames.obgamesapi.dto.response.BrowserGamesStarsResponseDTO;
 import com.obgames.obgamesapi.model.BrowserGame;
 import com.obgames.obgamesapi.service.BrowserGameService;
 
@@ -41,6 +42,11 @@ public class BrowserGameController {
     @GetMapping("/browserGames/recomendacao/{usuarioId}")
     public ResponseEntity<List<BrowserGame>> getBrowserGamesRecomendationById(@PathVariable String usuarioId) {
         return ResponseEntity.ok().body(browserGameService.getBrowserGamesRecomendationById(usuarioId));
+    }
+
+    @GetMapping("/browserGames/estrelas")
+    public ResponseEntity<List<BrowserGamesStarsResponseDTO>> getBrowserGamesStars() {
+        return ResponseEntity.ok().body(browserGameService.getBrowserGamesStars());
     }
 
     @PostMapping("/browserGames")
