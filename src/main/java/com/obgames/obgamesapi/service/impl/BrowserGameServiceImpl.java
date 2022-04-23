@@ -51,7 +51,30 @@ public class BrowserGameServiceImpl implements BrowserGameService {
 
     @Override
     public List<BrowserGame> getAllBrowserGame() {
-        return this.browserGameRepo.findAll(Sort.by("nome").ascending());
+        List<BrowserGame>  allBrowserGames =  this.browserGameRepo.findAll(Sort.by("nome").ascending());
+        List<BrowserGame> browserGamesAvgList = new ArrayList<BrowserGame>();
+         //= this.browserGameRepo.findAll();;
+
+        allBrowserGames.forEach(browserGame -> {
+                                int size = 0;
+                                double[] nota = {0.0}; // solucao para resolver problema de intancia de variavel dentro do forEach
+                                double avg = 0.0;
+                                size = avaliacaoRepo.findByBrowserGameId(browserGame.getId(), Sort.by("numEstrelas").descending()).size();
+                                avaliacaoRepo.findByBrowserGameId(browserGame.getId(), Sort.by("numEstrelas").descending())
+                                             .forEach(avaliacao -> {
+                                                nota[0] = nota[0] + avaliacao.getNumEstrelas();
+                                             });
+                                avg = Double.isNaN(nota[0]/size) ? avg : nota[0]/size;
+                                browserGame.setAvgEstrelas(avg);
+                                browserGame.setQtdAvaliacoes(size);
+                                browserGamesAvgList.add(browserGame);
+                                System.out.println("browserGamesMap Key : " + browserGame.getId() + " Avg Ava : " + avg);
+
+                            
+                        }); // calcula media de avaliacao dos browsergames da lista e adiciona em um hashmap <idBrowserGame, mediaAvaliacoes>
+
+
+        return browserGamesAvgList;
     }
 
     @Override
@@ -183,7 +206,7 @@ public class BrowserGameServiceImpl implements BrowserGameService {
                                 avg = Double.isNaN(nota[0]/size) ? avg : nota[0]/size;
                                 BrowserGamesStarsResponseDTO avgStars = new BrowserGamesStarsResponseDTO(browserGame.getId(), avg, size);
                                 browserGamesAvgList.add(avgStars);
-                                System.out.println("browserGamesMap Key : " + browserGame.getId() + " Avg Ava : " + avg);
+                                //System.out.println("browserGamesMap Key : " + browserGame.getId() + " Avg Ava : " + avg);
 
                             
                         }); // calcula media de avaliacao dos browsergames da lista e adiciona em um hashmap <idBrowserGame, mediaAvaliacoes>

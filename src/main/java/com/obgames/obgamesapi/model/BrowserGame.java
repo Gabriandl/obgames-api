@@ -22,6 +22,10 @@ public class BrowserGame {
 
     private String urlJogo;
 
+    private Double avgEstrelas;
+
+    private Integer qtdAvaliacoes;
+
     private String descricao;
 
     private long timestamp = System.currentTimeMillis()/1000;
@@ -103,6 +107,22 @@ public class BrowserGame {
 
     public void setUrlImagem(String urlImagem) {
         this.urlImagem = urlImagem;
+    }
+
+    public Double getAvgEstrelas() {
+        return avgEstrelas;
+    }
+
+    public void setAvgEstrelas(Double avgEstrelas) {
+        this.avgEstrelas = avgEstrelas;
+    }
+
+    public Integer getQtdAvaliacoes() {
+        return qtdAvaliacoes;
+    }
+
+    public void setQtdAvaliacoes(Integer qtdAvaliacoes) {
+        this.qtdAvaliacoes = qtdAvaliacoes;
     }
 
 
