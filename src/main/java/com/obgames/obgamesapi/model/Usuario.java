@@ -27,7 +27,6 @@ public class Usuario {
 
     private String pais;
     
-    @JsonIgnore
     private String senha;
     
     @DBRef
