@@ -19,7 +19,6 @@ public class Usuario {
 
     private String nomeCompleto ;
 
-    @JsonIgnore
     private String username;
 
     private String dataNasc;
