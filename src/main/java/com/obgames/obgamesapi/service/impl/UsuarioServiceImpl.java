@@ -26,15 +26,14 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public Optional<Usuario> updateUsuario(Usuario usuario, String usuarioId) throws ResourceNotFoundException {
-        Optional<Usuario> usuarioDb = this.usuarioRepo.findById(usuarioId);
-        if (usuarioDb.isPresent()) {
-            if (usuario.getId() == usuarioId) {
-                usuarioRepo.save(usuario);
-                return usuarioDb;
-            }
+    public Usuario updateUsuario(Usuario usuario, String usuarioId) throws ResourceNotFoundException {
+      
+        Usuario savedUsuario = usuarioRepo.save(usuario);
+        if (!savedUsuario.equals(null)){
+            return savedUsuario;
+        } else {
+            throw new ResourceNotFoundException("404", "Record not found with id : " + usuarioId);
         }
-        throw new ResourceNotFoundException("404", "Record not found with id : " + usuarioId);
 
     }
 

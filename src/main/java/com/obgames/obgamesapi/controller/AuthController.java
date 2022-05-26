@@ -7,9 +7,11 @@ import java.util.stream.Collectors;
 import javax.validation.Valid;
 
 import com.obgames.obgamesapi.dto.request.LoginRequest;
+import com.obgames.obgamesapi.dto.request.ResetPassword;
 import com.obgames.obgamesapi.dto.request.SignupRequest;
 import com.obgames.obgamesapi.dto.response.JwtResponse;
 import com.obgames.obgamesapi.dto.response.MessageResponse;
+import com.obgames.obgamesapi.exceptions.ResourceNotFoundException;
 import com.obgames.obgamesapi.model.EnumRole;
 import com.obgames.obgamesapi.model.Role;
 import com.obgames.obgamesapi.model.Usuario;
@@ -104,5 +106,16 @@ public class AuthController {
 		user.setRoles(roles);
 		usuarioService.createUsuario(user);
 		return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+	}
+
+	@PostMapping("/reset-password")
+	public ResponseEntity<?> resetPassword(@Valid @RequestBody ResetPassword resetPasswordequest) throws ResourceNotFoundException {
+		
+		Usuario user = usuarioService.getUsuarioById(resetPasswordequest.getIdUsuario());
+		System.out.println(user.getSenha());
+		user.setSenha(encoder.encode(resetPasswordequest.getNewPassword()));
+		System.out.println(user.getSenha());
+		usuarioService.updateUsuario(user, resetPasswordequest.getIdUsuario());
+		return ResponseEntity.ok(new MessageResponse("Password updated successfully!"));
 	}
 }

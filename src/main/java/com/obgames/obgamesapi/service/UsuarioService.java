@@ -11,7 +11,7 @@ public interface UsuarioService {
 
         Usuario createUsuario(Usuario usuario);
     
-        Optional<Usuario>  updateUsuario(Usuario usuario, String id) throws ResourceNotFoundException;
+        Usuario  updateUsuario(Usuario usuario, String id) throws ResourceNotFoundException;
 
         Boolean  verifyUsuarioExistsByUsername(String username);
     
