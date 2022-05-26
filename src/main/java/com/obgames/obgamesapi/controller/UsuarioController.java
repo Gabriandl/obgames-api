@@ -2,7 +2,6 @@ package com.obgames.obgamesapi.controller;
 
 
 import java.util.List;
-import java.util.Optional;
 
 import com.obgames.obgamesapi.exceptions.ResourceNotFoundException;
 import com.obgames.obgamesapi.exceptions.ResponseStatusException;
@@ -43,7 +42,7 @@ public class UsuarioController {
     }
 
     @PutMapping("/usuarios/{id}")
-    public ResponseEntity<Optional<Usuario>> updateUsuario(@PathVariable String id, @RequestBody Usuario usuario) throws ResourceNotFoundException {
+    public ResponseEntity<Usuario> updateUsuario(@PathVariable String id, @RequestBody Usuario usuario) throws ResourceNotFoundException {
         usuario.setId(id);
         return ResponseEntity.ok().body(this.usuarioService.updateUsuario(usuario, id));
     }
